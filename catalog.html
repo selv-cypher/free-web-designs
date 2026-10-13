@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Men's Fashion — ReTrO StItChEs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+<div class="subnav">
+  <div class="subnav-inner" id="subnav-inner"></div>
+</div>
+
+<main class="container">
+  <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span id="crumb-current">Shop</span></nav>
+
+  <div class="catalog-toolbar">
+    <div>
+      <h1 id="page-title">All Products</h1>
+      <div class="result-count" id="result-count"></div>
+    </div>
+    <select class="sort-select" id="sort-select">
+      <option value="relevance">Sort: Relevance</option>
+      <option value="new">Newest First</option>
+      <option value="bestseller">Bestsellers</option>
+      <option value="priceLow">Price: Low to High</option>
+      <option value="priceHigh">Price: High to Low</option>
+      <option value="discount">Discount: High to Low</option>
+      <option value="rating">Customer Rating</option>
+    </select>
+  </div>
+
+  <div class="mobile-filter-bar">
+    <button class="btn btn-outline-dark btn-sm btn-block" onclick="document.getElementById('filters-panel').classList.add('open'); document.getElementById('drawer-overlay-f').classList.add('open');">
+      Filters
+    </button>
+  </div>
+
+  <div class="active-chips" id="active-chips"></div>
+
+  <div class="catalog-layout">
+    <aside class="filters-panel" id="filters-panel">
+      <h3>Filters <button onclick="document.getElementById('filters-panel').classList.remove('open'); document.getElementById('drawer-overlay-f').classList.remove('open');" style="float:right; background:none; border:none; display:none;" id="filter-close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></h3>
+
+      <details class="filter-group" open>
+        <summary>Category</summary>
+        <div class="filter-options" id="filter-category"></div>
+      </details>
+
+      <details class="filter-group" open>
+        <summary>Price Range</summary>
+        <div class="filter-options" id="filter-price"></div>
+      </details>
+
+      <details class="filter-group" open>
+        <summary>Collection</summary>
+        <div class="filter-options" id="filter-collection"></div>
+      </details>
+
+      <details class="filter-group">
+        <summary>Size</summary>
+        <div class="size-pills" id="filter-size"></div>
+      </details>
+
+      <details class="filter-group">
+        <summary>Color</summary>
+        <div class="color-swatches" id="filter-color"></div>
+      </details>
+
+      <a class="clear-filters" href="catalog.html">Clear all filters</a>
+    </aside>
+
+    <div class="drawer-overlay" id="drawer-overlay-f" onclick="document.getElementById('filters-panel').classList.remove('open'); this.classList.remove('open');"></div>
+
+    <section>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <h3>No products match your filters</h3>
+        <p>Try removing a filter or browse all products.</p>
+        <a href="catalog.html" class="btn btn-dark" style="margin-top:16px;">Clear Filters</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>

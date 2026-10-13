@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — ReTrO StItChEs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="container" style="padding: 40px 0 70px; max-width: 460px;">
+  <div class="auth-card">
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Login</button>
+      <button type="button" class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">Sign Up</button>
+    </div>
+
+    <form id="login-form" class="auth-form" onsubmit="handleLoginSubmit(event)">
+      <h1 class="auth-title">Welcome back</h1>
+      <p class="auth-sub">Login to track orders, save your wishlist, and check out faster.</p>
+      <label class="auth-label">Email
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+      <label class="auth-label">Password
+        <input type="password" name="password" required placeholder="••••••••" minlength="4">
+      </label>
+      <div class="auth-error" id="login-error"></div>
+      <button type="submit" class="btn btn-accent btn-block">Login</button>
+      <p class="auth-switch">New here? <a href="#" onclick="event.preventDefault(); switchAuthTab('signup');">Create an account</a></p>
+    </form>
+
+    <form id="signup-form" class="auth-form" style="display:none;" onsubmit="handleSignupSubmit(event)">
+      <h1 class="auth-title">Create your account</h1>
+      <p class="auth-sub">Join ReTrO StItChEs for a faster checkout and order history.</p>
+      <label class="auth-label">Full Name
+        <input type="text" name="name" required placeholder="Your name">
+      </label>
+      <label class="auth-label">Email
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+      <label class="auth-label">Password
+        <input type="password" name="password" required placeholder="At least 4 characters" minlength="4">
+      </label>
+      <div class="auth-error" id="signup-error"></div>
+      <button type="submit" class="btn btn-accent btn-block">Create Account</button>
+      <p class="auth-switch">Already have an account? <a href="#" onclick="event.preventDefault(); switchAuthTab('login');">Login</a></p>
+    </form>
+
+    <p class="auth-note">This is a demo store — accounts are saved only in this browser, not on a server.</p>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

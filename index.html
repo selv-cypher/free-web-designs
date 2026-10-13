@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // Gate the home page behind welcome.html (login/signup, with a skip option)
+  // once per browser session — but never if the visitor is already logged in
+  // or has already seen/skipped it this session.
+  try {
+    var hasSession = !!localStorage.getItem('retro_stitches_session');
+    var entrySeen = sessionStorage.getItem('retro_stitches_entry_seen');
+    if (!hasSession && !entrySeen) {
+      window.location.replace('welcome.html');
+    }
+  } catch (e) {}
+</script>
+<title>ReTrO StItChEs — Men's Fashion Online | Shirts & Trousers</title>
+<meta name="description" content="Shop ReTrO StItChEs — our own in-house men's fashion label. Shirts and trousers, designed and sold exclusively by us.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">New Season — Autumn Drop</span>
+        <h1>Dress sharp.<br>Move easy.</h1>
+        <p>Streetwear staples to sharp formals — curated fits for every mood, every day. Free shipping over ₹999.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+          <a href="catalog.html" class="btn btn-accent">Shop All</a>
+          <a href="catalog.html?sort=discount" class="btn btn-outline">View Deals</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="images/products/shirt_1.jpg" alt="">
+        <img class="col-offset" src="images/products/shirt_2.jpg" alt="">
+        <img src="images/products/shirt_3.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section container">
+    <div class="section-head">
+      <div>
+        <h2>Shop by Category</h2>
+        <p>Everything you need, sorted your way</p>
+      </div>
+      <a href="catalog.html" class="link-more">View All →</a>
+    </div>
+    <div class="cat-grid" id="cat-grid"></div>
+  </section>
+
+  <!-- COLLECTION STRIP -->
+  <div class="container">
+    <div class="brand-strip" id="collection-strip"></div>
+  </div>
+
+  <!-- BESTSELLERS -->
+  <section class="section container">
+    <div class="section-head">
+      <div>
+        <h2>Bestsellers</h2>
+        <p>Loved by thousands, restocked for you</p>
+      </div>
+      <a href="catalog.html?sort=bestseller" class="link-more">See More →</a>
+    </div>
+    <div class="product-grid" id="bestseller-grid"></div>
+  </section>
+
+  <!-- NEW ARRIVALS -->
+  <section class="section container" style="background:var(--bg-alt); border-radius:20px;">
+    <div class="section-head">
+      <div>
+        <h2>Just Dropped</h2>
+        <p>Fresh arrivals this week</p>
+      </div>
+      <a href="catalog.html?sort=new" class="link-more">See More →</a>
+    </div>
+    <div class="product-grid" id="new-grid"></div>
+  </section>
+
+  <!-- DEALS -->
+  <section class="section container">
+    <div class="section-head">
+      <div>
+        <h2>Deals Under Discount</h2>
+        <p>Up to 70% off — while stock lasts</p>
+      </div>
+      <a href="catalog.html?sort=discount" class="link-more">Grab Deals →</a>
+    </div>
+    <div class="product-grid" id="deal-grid"></div>
+  </section>
+
+  <!-- VALUE PROPS -->
+  <section class="section container">
+    <div class="value-strip">
+      <div class="value-card">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h4>Free Shipping</h4><p>On all orders above ₹999 across India</p></div>
+      </div>
+      <div class="value-card">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.22-8.56"/><path d="M12 7v5l3 3"/></svg>
+        <div><h4>7-Day Returns</h4><p>Easy exchange, no questions asked</p></div>
+      </div>
+      <div class="value-card">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        <div><h4>Secure Payments</h4><p>UPI, cards & cash on delivery</p></div>
+      </div>
+      <div class="value-card">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <div><h4>Loved by 2M+</h4><p>Rated 4.5 average across products</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="container" style="padding-bottom:56px;">
+    <div class="newsletter">
+      <div>
+        <h2>Get 10% off your first order</h2>
+        <p>Sign up for restock alerts, new drops & exclusive deals.</p>
+      </div>
+      <form onsubmit="event.preventDefault(); showToast('Subscribed! Check your inbox for the code.'); this.reset();">
+        <input type="email" required placeholder="Enter your email">
+        <button type="submit" class="btn btn-dark">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderHeader('home');
+  renderFooter();
+
+  const catImages = {
+    shirts: 'images/products/shirt_3.jpg',
+    trousers: 'images/products/p03_02.jpg'
+  };
+  // Home page category tiles
+  const homeCats = CATEGORIES.filter(c => catImages[c.key]);
+  document.getElementById('cat-grid').innerHTML = homeCats.map(c => `
+    <a href="catalog.html?cat=${c.key}" class="cat-tile">
+      <img src="${catImages[c.key]}" alt="${c.label}">
+      <div class="cat-label">${c.label}</div>
+    </a>`).join('');
+
+  document.getElementById('collection-strip').innerHTML = COLLECTIONS.map(c =>
+    `<a href="catalog.html?collection=${encodeURIComponent(c)}"><span>${c.toUpperCase()}</span></a>`).join('');
+
+  const bestsellers = PRODUCTS.filter(p => p.isBestseller).slice(0, 8);
+  document.getElementById('bestseller-grid').innerHTML = (bestsellers.length ? bestsellers : PRODUCTS.slice(0,8)).map(productCardHTML).join('');
+
+  const fresh = PRODUCTS.filter(p => p.isNew).slice(0, 4);
+  document.getElementById('new-grid').innerHTML = (fresh.length ? fresh : PRODUCTS.slice(8,12)).map(productCardHTML).join('');
+
+  const deals = [...PRODUCTS].sort((a,b) => b.discountPct - a.discountPct).slice(0, 4);
+  document.getElementById('deal-grid').innerHTML = deals.map(productCardHTML).join('');
+</script>
+</body>
+</html>
